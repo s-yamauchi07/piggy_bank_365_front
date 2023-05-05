@@ -1,5 +1,4 @@
-import { BrowserRouter,NavLink,Switch } from "react-router-dom";
-import { AuthContext } from "../App";
+import { NavLink} from "react-router-dom";
 
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
