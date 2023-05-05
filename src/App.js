@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import { Home } from './components/Home';
 import { SignIn } from './components/SignIn';
 import { SignUp } from './components/SignUp';
+import { Header } from './components/Header';
 
 import { getCurrentUser} from './api/auth';
 
@@ -66,11 +67,12 @@ function App() {
       >
         {/* ログイン時にはHomeコンポーネント、非ログイン時にはsignup,signinのページを表示させる。 */}
       <BrowserRouter>
+        <Header />
         <Switch>
-          <Route exact path="/signup">
+          <Route path="/signup">
             <SignUp />
           </Route>
-          <Route exact path="/signin">
+          <Route path="/signin">
             <SignIn />
           </Route>
           <Private>
