@@ -1,9 +1,9 @@
-import { useState, userEffect, createContext} from 'react'
+import { useState, useEffect, createContext} from 'react'
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
-import Home from './components/Home';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import { Home } from './components/Home';
+import { SignIn } from './components/SignIn';
+import { SignUp } from './components/SignUp';
 
 import { getCurrentUser} from './api/auth';
 
@@ -35,7 +35,7 @@ function App() {
   }
 
   //初回とsetCurrentUserの値に変化があったときにhandleGetCurrentUserを実行。
-  userEffect(() => {
+  useEffect(() => {
     handleGetCurrentUser()
   }, [setCurrentUser])
 
@@ -65,22 +65,22 @@ function App() {
       }}
       >
         {/* ログイン時にはHomeコンポーネント、非ログイン時にはsignup,signinのページを表示させる。 */}
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/signup">
-              <SignUp />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+          <Private>
+            <Route exact path="/">
+              <Home />
             </Route>
-            <Route exact path="/signin">
-              <SignUp />
-            </Route>
-            <Private>
-              <Route exact path="/">
-                <Home />
-              </Route>
-            </Private>
-          </Switch>
-        </BrowserRouter>
-      </AuthContext.Provider>
+          </Private>
+        </Switch>
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 
