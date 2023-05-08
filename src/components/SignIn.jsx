@@ -15,6 +15,7 @@ export const SignIn = () => {
   const  {setIsSignedIn, setCurrentUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const history = useHistory();
 
@@ -32,9 +33,7 @@ export const SignIn = () => {
     
     try {
       const res = await signIn(params);
-      console.log(res)
       if (res.status === 200) {
-        console.log("てすと")
         // ログインに成功した場合は、Cookieに各値を格納。
         Cookies.set("_access_token", res.headers["access-token"]);
         Cookies.set("_client", res.headers["client"]);
@@ -46,7 +45,11 @@ export const SignIn = () => {
         history.push("/")
       }
     } catch (e) {
-      console.log(e)
+      if (e.response.data.errors) {
+        setErrors(e.response.data.errors);
+      } else {
+        console.log(e);
+      }
     }
   };
 
@@ -87,6 +90,15 @@ export const SignIn = () => {
       <NavLink to="/signup">To signup</NavLink>
     </CardContent>
     </form>
+    {errors.length > 0 ? (
+      <div>
+        <ul>
+        {errors.map((error, index) => (
+          <li key={index}>{error}</li> 
+        ))}
+        </ul>
+      </div>  
+    ) : null}
     </>
   )
 } 

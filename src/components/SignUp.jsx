@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import { useContext, useState } from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { signUp } from "../api/auth";
 import { AuthContext } from "../App";
 
@@ -18,16 +18,17 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const confirmSuccessUrl = "http://localhost:3000"
+  const [errors, setErrors] = useState([]);
 
   const history = useHistory();
 
   const generateParams = () => {
     const signUpParams = {
+      nickname: nickname,
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation,
-      confirmSuccessUrl: confirmSuccessUrl,
+
     };
     return signUpParams;
   };
@@ -39,7 +40,7 @@ export const SignUp = () => {
     try {
       //api/auth内のsignUp関数を呼び出す。
       const res = await signUp(params);
-      if (res === 200) {
+      if (res.status === 200) {
         // ログインに成功した場合は、Cookieに各値を格納。
         Cookies.set("_access_token", res.headers["access-token"]);
         Cookies.set("_client", res.headers["client"]);
@@ -50,9 +51,13 @@ export const SignUp = () => {
 
         history.push("/")
       }
-      alert("confirm user");
     } catch (e) {
-      console.log(e)
+      console.log(e.response.data.errors.fullMessages)
+      if (e.response.data.errors) {
+        setErrors(e.response.data.errors.fullMessages);
+      } else {
+        console.log(e);
+      }
     }
   };
 
@@ -111,7 +116,15 @@ export const SignUp = () => {
         </CardContent>
       </form>
       {/* 情報が不足している場合はアラート表示する */}
-
+      {errors.length > 0 ? (
+      <div>
+        <ul>
+        {errors.map((error, index) => (
+          <li key={index}>{error}</li> 
+        ))}
+        </ul>
+      </div>  
+    ) : null}
     </>
   )
 } 

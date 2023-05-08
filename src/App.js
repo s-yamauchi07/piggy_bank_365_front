@@ -20,11 +20,11 @@ function App() {
     try {
       const res = await getCurrentUser()
 
+      // resオブジェクトがundefinedまたはnullでないこと
+      // res.data.isLoginプロパティがtrueであることを満たせばif文が実行される。
       if (res?.data.isLogin === true) {
         setIsSignedIn(true);
         setCurrentUser(res?.data.data)
-
-        console.log(res?.data.data)
       } else {
         console.log("No current user")
       }
