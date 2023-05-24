@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useHistory, Link } from "react-router-dom";
 import { useContext} from 'react'
-import {AuthContext} from '../App'
+import { AuthContext } from '../App'
 import { signOut } from "../api/auth";
 import Cookies from "js-cookie";
 
