@@ -25,7 +25,7 @@ export const Home = () => {
   const submitAmount = async(newAmount, value,newChecked) => {
     await axios.post("http://localhost:3001/amounts", {
         save_amount: value,
-        checked: newChecked[value],
+        // checked: newChecked[value],
         total_amount: newAmount,
         user_id: currentUser.id
     });
@@ -38,9 +38,10 @@ export const Home = () => {
         user_id: currentUser.id
       }
     });
+    console.log(res.data.is_checked)
     const savingAmount = res.data.is_checked
     const fetchChecked = checked
-    savingAmount.forEach(num => fetchChecked[num.save_amount] = num.checked);
+    savingAmount.forEach(num => fetchChecked[num.save_amount] = true);
     setChecked(fetchChecked)
     return res.data.amount.total_amount
   };
