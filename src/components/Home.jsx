@@ -4,26 +4,19 @@ import '../Home.css';
 import { AuthContext } from '../App'
 import { useContext} from 'react'
 
+const days = Array.from(new Array(365)).map((v, i) => i+1)
 
 export const Home = () => {
   const [amount, setAmount] = useState(0)
-  const [totalAmount, setTotalAmount] = useState(0)
   const [checked, setChecked] = useState(Array(365).fill(false));
   const { currentUser } = useContext(AuthContext)
 
-  let days = [];
-  for (let i=1; i <= 365; i++) {
-    days.push(i)
-  }
-  
   const handleClick = (value) => {
-    console.log(totalAmount)
     const newChecked = [...checked];
     newChecked[value] = !newChecked[value];
     setChecked(newChecked);
 
-    const newAmount = newChecked[value] ? totalAmount + value : totalAmount - value;
-    console.log(newAmount)
+    const newAmount = newChecked[value] ? amount + value : amount - value;
 
     setAmount(newAmount)
     submitAmount(newAmount, value, newChecked)
@@ -31,23 +24,30 @@ export const Home = () => {
 
   const submitAmount = async(newAmount, value,newChecked) => {
     await axios.post("http://localhost:3001/amounts", {
-      save_amount: value,
-      checked: newChecked[value],
-      total_amount: newAmount,
-      user_id: currentUser.id
+        save_amount: value,
+        checked: newChecked[value],
+        total_amount: newAmount,
+        user_id: currentUser.id
     });
   }
 
   // データベースからデータを読み取る
   const fetch = async () => {
-    const res = await axios.get("http://localhost:3001/amounts")
-    return res.data.total_amount
-    // setTotalAmount(res.data.total_amount)
+    const res = await axios.get("http://localhost:3001/amounts", {
+      params: {
+        user_id: currentUser.id
+      }
+    });
+    const savingAmount = res.data.is_checked
+    const fetchChecked = checked
+    savingAmount.forEach(num => fetchChecked[num.save_amount] = num.checked);
+    setChecked(fetchChecked)
+    return res.data.amount.total_amount
   };
 
   useEffect(() => {
-    fetch().then(res => setTotalAmount(res));
-  }, [amount]);
+    fetch().then(res => setAmount(res));
+  }, []);
 
 
   return (
