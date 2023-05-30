@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 import { SignIn } from './components/SignIn';
 import { SignUp } from './components/SignUp';
 import { Header } from './components/Header';
+import { ShowDate } from './components/ShowDate';
 
 import { getCurrentUser} from './api/auth';
 
@@ -78,6 +79,9 @@ function App() {
           <Private>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/calendars">
+              <ShowDate />
             </Route>
           </Private>
         </Switch>
