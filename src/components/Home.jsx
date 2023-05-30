@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import '../Home.css';
 import { AuthContext } from '../App'
-import { useContext} from 'react'
+import { useContext } from 'react'
 
 const days = Array.from(new Array(365)).map((v, i) => i+1)
 
@@ -38,7 +38,6 @@ export const Home = () => {
         user_id: currentUser.id
       }
     });
-    console.log(res.data.is_checked)
     const savingAmount = res.data.is_checked
     const fetchChecked = checked
     savingAmount.forEach(num => fetchChecked[num.save_amount] = true);
