@@ -23,7 +23,7 @@ export const Home = () => {
   }
 
   const submitAmount = async(newAmount, value,newChecked) => {
-    await axios.post("http://localhost:3001/amounts", {
+    await axios.post(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/amounts`, {
         save_amount: value,
         // checked: newChecked[value],
         total_amount: newAmount,
@@ -33,7 +33,7 @@ export const Home = () => {
 
   // データベースからデータを読み取る
   const fetch = async () => {
-    const res = await axios.get("http://localhost:3001/amounts", {
+    const res = await axios.get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/amounts`, {
       params: {
         user_id: currentUser.id
       }

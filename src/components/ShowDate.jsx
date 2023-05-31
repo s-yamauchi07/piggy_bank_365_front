@@ -12,7 +12,7 @@ export const ShowDate = () => {
   const [savingDate, setSavingDate] = useState([])
 
   const fetch = async () => {
-    const res = await axios.get("http://localhost:3001/calendars", {
+    const res = await axios.get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/calendars`, {
       params: {
         user_id: currentUser.id
       }
