@@ -21,8 +21,8 @@ export const ShowDate = () => {
       savingDay : saving['updated_at'].split('T')[0],
       savingAmount :saving['save_amount']
     }))
-    // console.log(onlyDateArray)
     setSavingDate(onlyDateArray)
+    console.log(onlyDateArray)
   }
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const ShowDate = () => {
 
   // if this date is in our array, highlight it!
     if (highlight) {
-      return <div style={{backgroundColor: 'lightblue',height: '36px',borderRadius: '50%'}}><SavingsIcon /></div>
+      return <div style={{color:'pink',height: '36px'}}><SavingsIcon /></div>
     } else {
       return <div style={{height: '36px'}}>×</div>
     }
@@ -54,14 +54,12 @@ export const ShowDate = () => {
     <p>カレンダー表示</p>
     <Calendar 
     local="ja-JP"
-    // calendarType="US"
+    calendarType="US"
     defaultValue={new Date()}
     defaultView="month"
     tileContent={getTileContent}
     formatDay={(locale, date) => format(date, 'd')}
     />
-
-    <p>累計推移</p>
     </>
   )
 }
