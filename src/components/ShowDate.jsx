@@ -22,7 +22,6 @@ export const ShowDate = () => {
       savingAmount :saving['save_amount']
     }))
     setSavingDate(onlyDateArray)
-    console.log(onlyDateArray)
   }
 
   useEffect(() => {
