@@ -57,6 +57,7 @@ export const Header = () => {
             <>
              <Button sx={{color: '#fff'}}>{currentUser.nickname}</Button>
              <Button sx={{color: '#fff'}} onClick={handleSignOut}>LogOut</Button>
+             <Button sx={{color: '#fff'}} component={Link} to="/calendars">Calendar</Button>
             </>
           ) : (
             <>
