@@ -33,12 +33,10 @@ export const ShowDate = () => {
   function getTileContent({date, view}) {
     if (view !== 'month') return;
 
-    // savingDateの変換
-    const tileDateString = date.toISOString().split('T')[0]
+    const tileDateString = format(date, 'yyyy-MM-dd')
 
     const highlight = savingDate.find(d => d.savingDay === tileDateString) 
 
-  // if this date is in our array, highlight it!
     if (highlight) {
       return <div style={{color:'pink',height: '36px'}}><SavingsIcon /></div>
     } else {
