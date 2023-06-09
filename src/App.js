@@ -1,6 +1,7 @@
 import { useState, useEffect, createContext} from 'react'
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
+import { Top } from './components/Top';
 import { Home } from './components/Home';
 import { SignIn } from './components/SignIn';
 import { SignUp } from './components/SignUp';
@@ -70,6 +71,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
@@ -77,8 +81,8 @@ function App() {
             <SignIn />
           </Route>
           <Private>
-            <Route exact path="/">
-              <Home />
+            <Route path="/amounts">
+              <Top />
             </Route>
             <Route path="/calendars">
               <ShowDate />
