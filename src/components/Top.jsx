@@ -3,6 +3,7 @@ import axios from "axios";
 import '../top.css';
 import { AuthContext } from '../App'
 import { useContext } from 'react'
+import { Button } from '@mui/material';
 
 const days = Array.from(new Array(365)).map((v, i) => i+1)
 
@@ -54,18 +55,19 @@ export const Top = () => {
     <>
     <div className="top-content">
       <p>Total Amount: ¥{amount}</p>
-      <ul className="num-lists">
+      <div className="num-lists">
         {days.map((item, i) => (
-          <li key={i}
+          <Button key={i}
               value={item}
               className="num-list"
-              style={{backgroundColor: checked[i+1]? 'red': 'transparent'}}
+              style={{backgroundColor: checked[i+1]? 'lightgray': 'transparent'}}
               onClick= { () => handleClick(item)}
+              variant="outlined"
           >
           {item}
-          </li>
+          </Button>
         ))}
-      </ul>
+      </div>
     </div>
     </>
   )

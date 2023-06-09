@@ -1,4 +1,4 @@
-import '../home.css';
+import '../Home.css';
 import topImage from "../images/piggy_bank_365.png"
 
 export const Home = () => {
