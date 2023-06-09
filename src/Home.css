@@ -2,7 +2,7 @@
 
 /* home */
 .first-view {
-  height: 100vh;
+  height: calc(100vh - 138px);
   width: auto;
   position: relative;
 }

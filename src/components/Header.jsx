@@ -42,10 +42,18 @@ export const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar style={{display:'flex', justifyContent: 'space-between'}}>
-          <div style={{display: 'flex', alignItems:'center'}}>
+          <Link
+            style={{
+              display: 'flex',
+              alignItems:'center',
+              color:'#fff',
+              textDecoration:'none'
+            }}
+            to="/"
+          >
             <SavingsOutlinedIcon fontSize="large"/>
             <h2>PIGGY BANK 365</h2>
-          </div>
+          </Link>
 
           {isSignedIn ? (
             <>
