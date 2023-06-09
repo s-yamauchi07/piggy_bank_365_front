@@ -42,7 +42,7 @@ export const SignIn = () => {
         setIsSignedIn(true);
         setCurrentUser(res.data.data);
 
-        history.push("/")
+        history.push("/amounts")
       }
     } catch (e) {
       if (e.response.data.errors) {

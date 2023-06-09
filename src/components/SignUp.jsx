@@ -49,7 +49,7 @@ export const SignUp = () => {
         setIsSignedIn(true);
         setCurrentUser(res.data.data);
 
-        history.push("/")
+        history.push("/amounts")
       }
     } catch (e) {
       console.log(e.response.data.errors.fullMessages)
