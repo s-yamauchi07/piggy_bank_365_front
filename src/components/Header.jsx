@@ -10,8 +10,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
 
 export const Header = () => {
   const { isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext)
@@ -42,27 +41,26 @@ export const Header = () => {
     <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          <MenuIcon />
-          </IconButton>
+        <Toolbar style={{display:'flex', justifyContent: 'space-between'}}>
+          <div style={{display: 'flex', alignItems:'center'}}>
+            <SavingsOutlinedIcon fontSize="large"/>
+            <h2>PIGGY BANK 365</h2>
+          </div>
 
           {isSignedIn ? (
             <>
-             <Button sx={{color: '#fff'}}>{currentUser.nickname}</Button>
-             <Button sx={{color: '#fff'}} onClick={handleSignOut}>LogOut</Button>
-             <Button sx={{color: '#fff'}} component={Link} to="/calendars">Calendar</Button>
+            <div>
+              <Button sx={{color: '#fff'}} size="large">{currentUser.nickname}</Button>
+              <Button sx={{color: '#fff'}} size="large" onClick={handleSignOut}>LogOut</Button>
+              <Button sx={{color: '#fff'}} size="large" component={Link} to="/calendars">Calendar</Button>
+            </div>
             </>
           ) : (
             <>
-            <Button component={Link} to="/signin">Login</Button>
-            <Button component={Link} to="/signup">Signup</Button>
+            <div>
+              <Button sx={{color: '#fff'}} size="large" component={Link} to="/signin">Login</Button>
+              <Button sx={{color: '#fff'}} size="large" component={Link} to="/signup">Signup</Button>
+            </div>
             </>
             )}
         </Toolbar>
