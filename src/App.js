@@ -7,6 +7,7 @@ import { SignIn } from './components/SignIn';
 import { SignUp } from './components/SignUp';
 import { Header } from './components/Header';
 import { ShowDate } from './components/ShowDate';
+import { Footer } from './components/Footer';
 
 import { getCurrentUser} from './api/auth';
 
@@ -89,6 +90,7 @@ function App() {
             </Route>
           </Private>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </AuthContext.Provider>
   );
