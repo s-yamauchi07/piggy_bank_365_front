@@ -12,6 +12,7 @@
   height: 100%;
   background-position: center;
   background-size: auto;
+  object-fit: cover;
 }
 
 .top-text-contents {
