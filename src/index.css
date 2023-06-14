@@ -20,3 +20,7 @@ h1 {
 p {
   margin: 0;
 }
+
+.wrapper {
+  height: calc(100vh - 138px);
+}
