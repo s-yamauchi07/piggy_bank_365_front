@@ -8,6 +8,7 @@ import { SignUp } from './components/SignUp';
 import { Header } from './components/Header';
 import { ShowDate } from './components/ShowDate';
 import { Footer } from './components/Footer';
+import { User } from './components/User';
 
 import { getCurrentUser} from './api/auth';
 
@@ -87,6 +88,9 @@ function App() {
             </Route>
             <Route path="/calendars">
               <ShowDate />
+            </Route>
+            <Route path="/user">
+              <User />
             </Route>
           </Private>
         </Switch>
