@@ -74,6 +74,7 @@ export const SignIn = () => {
         label="Password"
         value={password}
         margin="dense"
+        type="password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <Button
