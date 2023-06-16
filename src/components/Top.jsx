@@ -53,7 +53,7 @@ export const Top = () => {
 
   return (
     <>
-    <div className="top-content">
+    <div className="wrapper">
       <p>Total Amount: ¥{amount}</p>
       <div className="num-lists">
         {days.map((item, i) => (
