@@ -59,6 +59,7 @@ export const Header = () => {
             <>
             <div>
               <Button sx={{color: '#fff'}} size="large" component={Link} to={`/user/${currentUser.id}`}>{currentUser.nickname}</Button>
+              <Button sx={{color: '#fff'}} size="large" component={Link} to={"/amounts"}>Top</Button>
               <Button sx={{color: '#fff'}} size="large" onClick={handleSignOut}>LogOut</Button>
             </div>
             </>
