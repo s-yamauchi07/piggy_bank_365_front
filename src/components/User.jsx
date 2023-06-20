@@ -4,6 +4,7 @@ import { useState} from "react";
 import { useContext} from 'react'
 import { AuthContext } from '../App'
 import { EditModal } from './EditModal'
+import { DeleteModal } from './DeleteModal'
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -31,9 +32,13 @@ const style = {
 export const User = () => {
   const { currentUser } = useContext(AuthContext)
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const handleEditOpen = () => setEditOpen(true);
+  const handleEditClose = () => setEditOpen(false);
+
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const handleDeleteOpen = () => setDeleteOpen(true);
+  const handleDeleteClose = () => setDeleteOpen(false);
   
   return(
     <>
@@ -63,8 +68,12 @@ export const User = () => {
           </ListItemAvatar>
           <ListItemText primary="Password" secondary="*****" />
         </ListItem>
-        <Button size="small" onClick={handleOpen}>Edit</Button>
-        { open && <EditModal handleClose={handleClose} open={open} userInfo={currentUser}/> }
+        
+        <Button size="small" onClick={handleEditOpen}>Edit</Button>
+        { editOpen && <EditModal handleClose={handleEditClose} open={editOpen} userInfo={currentUser}/> }
+
+        <Button size="small" onClick={handleDeleteOpen}>Delete</Button>
+        { deleteOpen && <DeleteModal handleClose={handleDeleteClose} open={deleteOpen} userInfo={currentUser}/> }
       </List>
       <ShowDate />
     </div>
