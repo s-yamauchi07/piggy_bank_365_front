@@ -23,7 +23,7 @@ const style = {
   p: 4,
 };
 
-export const EditModal = ({handleClose,open,userInfo}) => {
+export const DeleteModal = ({handleClose,open,userInfo}) => {
   const { setIsSignedIn, setCurrentUser }= useContext(AuthContext);
   // ユーザー編集用のparamsを作る
   const [nickname, setNickname] = useState(userInfo.nickname);
@@ -45,7 +45,7 @@ export const EditModal = ({handleClose,open,userInfo}) => {
     return UserEditParams;
   };
 
-  const handleEditUser = async(e) => {
+  const handleDeleteUser = async(e) => {
     e.preventDefault();
 
     const params = generateEditParams();
@@ -86,49 +86,10 @@ export const EditModal = ({handleClose,open,userInfo}) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edit User Profile
+            Delete Profile
           </Typography>
-          <TextField
-          id="standard-helperText"
-          label="Nickname"
-          defaultValue={userInfo.nickname}
-          helperText="*required"
-          variant="standard"
-          margin="dense"
-          style={{width: '80%'}}
-          onChange={(e) => setNickname(e.target.value)}
-        />
-          <TextField
-          id="standard-helperText"
-          label="Email"
-          defaultValue={userInfo.uid}
-          helperText="*required"
-          variant="standard"
-          margin="dense"
-          style={{width: '80%'}}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-          <TextField
-          id="standard-helperText"
-          label="password"
-          type="password"
-          helperText="*required"
-          variant="standard"
-          margin="dense"
-          style={{width: '80%'}}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-          <TextField
-          id="standard-helperText"
-          label="password_confirmation"
-          type="password"
-          helperText="*required"
-          variant="standard"
-          margin="dense"
-          style={{width: '80%'}}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
-        <Button style={{display: 'block'}} onClick={handleEditUser}>update</Button>
+          
+        <Button style={{display: 'block'}} onClick={handleDeleteUser}>update</Button>
         </Box>
       </Modal>
     </div>

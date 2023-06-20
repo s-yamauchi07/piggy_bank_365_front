@@ -3,7 +3,7 @@ import { ShowDate } from './ShowDate'
 import { useState} from "react";
 import { useContext} from 'react'
 import { AuthContext } from '../App'
-import { EditModal } from './Modal'
+import { EditModal } from './EditModal'
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
