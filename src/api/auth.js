@@ -33,6 +33,18 @@ export const updateUser = (params) => {
   })
 }
 
+//ユーザー削除
+export const deleteUser = () => {
+  return client.delete("/api/auth",{
+    headers: {
+      "access-token": Cookies.get("_access_token"),
+      "client": Cookies.get("_client"),
+      "uid": Cookies.get("_uid")
+    }
+  })
+
+}
+
 //認証済みユーザーを取得
 export const getCurrentUser = () => {
   if (!Cookies.get("_access_token") || !Cookies.get("_client") || !Cookies.get("_uid")) return;

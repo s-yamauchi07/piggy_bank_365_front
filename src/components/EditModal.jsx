@@ -86,7 +86,7 @@ export const EditModal = ({handleClose,open,userInfo}) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edit User Profile
+            Edit Profile
           </Typography>
           <TextField
           id="standard-helperText"
@@ -120,7 +120,7 @@ export const EditModal = ({handleClose,open,userInfo}) => {
         />
           <TextField
           id="standard-helperText"
-          label="password_confirmation"
+          label="password confirmation"
           type="password"
           helperText="*required"
           variant="standard"
