@@ -1,5 +1,22 @@
 /* Top */
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=M+PLUS+1p&family=Moirai+One&family=Noto+Sans+JP:wght@100;400;500&display=swap');
+
+
+
 ul, li {
   padding: 0;
   margin: 0;
+}
+
+.top-heading {
+  text-align: center;
+}
+
+.num-lists {
+  height: 100%;
+}
+
+.total-amount {
+  font-family: 'Bagel Fat One', cursive;
+  color: #FFDE5A;
 }

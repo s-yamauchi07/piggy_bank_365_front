@@ -4,6 +4,7 @@ import '../top.css';
 import { AuthContext } from '../App'
 import { useContext } from 'react'
 import { Button } from '@mui/material';
+import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 
 const days = Array.from(new Array(365)).map((v, i) => i+1)
 
@@ -23,10 +24,9 @@ export const Top = () => {
     submitAmount(newAmount, value, newChecked)
   }
 
-  const submitAmount = async(newAmount, value,newChecked) => {
+  const submitAmount = async(newAmount, value) => {
     await axios.post(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/amounts`, {
         save_amount: value,
-        // checked: newChecked[value],
         total_amount: newAmount,
         user_id: currentUser.id
     });
@@ -46,6 +46,16 @@ export const Top = () => {
     return res.data.amount.total_amount
   };
 
+  const resetButton = async() => {
+    await axios.delete(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/amounts/${currentUser.id}`, {
+      params: {
+        user_id: currentUser.id
+      }
+    })
+    setChecked(Array(365).fill(false));
+    setAmount(0)
+  }
+
   useEffect(() => {
     fetch().then(res => setAmount(res));
   }, []);
@@ -54,7 +64,10 @@ export const Top = () => {
   return (
     <>
     <div className="wrapper">
-      <p>Total Amount: ¥{amount}</p>
+      <div className="top-heading">
+        <h1 className="total-amount">Total Amount: ¥{amount}</h1>
+        <Button variant="outlined" color="error" onClick={ () => resetButton()}><RotateLeftIcon />reset</Button>
+      </div>  
       <div className="num-lists">
         {days.map((item, i) => (
           <Button key={i}
