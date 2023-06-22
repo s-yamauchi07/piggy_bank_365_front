@@ -120,7 +120,7 @@ export const EditModal = ({handleClose,open,userInfo}) => {
         />
           <TextField
           id="standard-helperText"
-          label="password_confirmation"
+          label="password confirmation"
           type="password"
           helperText="*required"
           variant="standard"
