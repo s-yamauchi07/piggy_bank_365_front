@@ -2,8 +2,8 @@ import * as React from 'react';
 import Cookies from "js-cookie";
 import { useContext,useState } from "react";
 import { AuthContext } from "../App";
-import { updateUser } from "../api/auth";
-import { useHistory } from "react-router-dom";
+import { deleteUser } from "../api/auth";
+import { useHistory} from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -26,44 +26,27 @@ const style = {
 export const DeleteModal = ({handleClose,open,userInfo}) => {
   const { setIsSignedIn, setCurrentUser }= useContext(AuthContext);
   // ユーザー編集用のparamsを作る
-  const [nickname, setNickname] = useState(userInfo.nickname);
-  const [email, setEmail] = useState(userInfo.uid);
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
 
-
   const history = useHistory();
-
-  const generateEditParams = () => {
-    const UserEditParams = {
-        nickname: nickname,
-        email: email,
-        password: password,
-        passwordConfirmation: passwordConfirmation,
-    };
-    return UserEditParams;
-  };
 
   const handleDeleteUser = async(e) => {
     e.preventDefault();
 
-    const params = generateEditParams();
     try {
-      //api/auth内のupdateUser関数を呼び出す。
-      const res = await updateUser(params);
-      console.log(res)
+      //api/auth内のdeleteUser関数を呼び出す。
+      const res = await deleteUser();
       if (res.status === 200) {
-        //ログインユーザーを更新して、/amountページへ遷移させる
+        //ユーザー削除して、トップページへ遷移させる
         Cookies.set("_access_token", res.headers["access-token"]);
         Cookies.set("_client", res.headers["client"]);
         Cookies.set("_uid", res.headers["uid"])
         
-        setIsSignedIn(true);
-        const currentUser = setCurrentUser(res.data.data);
+        setIsSignedIn(false);
         
-
-        history.push(`/users/${currentUser.id}`)
+        history.push('/')
       }
     } catch (e) {
       console.log(e.response.data.errors.fullMessages)
@@ -88,8 +71,30 @@ export const DeleteModal = ({handleClose,open,userInfo}) => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Delete Profile
           </Typography>
-          
-        <Button style={{display: 'block'}} onClick={handleDeleteUser}>update</Button>
+          <p>本当に退会しますか？<br></br>
+             退会する場合は、passwordを入力してください。
+          </p>
+          <TextField
+          id="standard-helperText"
+          label="password"
+          type="password"
+          helperText="*required"
+          variant="standard"
+          margin="dense"
+          style={{width: '80%'}}
+          onChange={(e) => setPassword(e.target.value)}
+          />
+          <TextField
+          id="standard-helperText"
+          label="password confirmation"
+          type="password"
+          helperText="*required"
+          variant="standard"
+          margin="dense"
+          style={{width: '80%'}}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          />
+          <Button variant="outlined" color="error" onClick={handleDeleteUser}>Delete</Button>
         </Box>
       </Modal>
     </div>
