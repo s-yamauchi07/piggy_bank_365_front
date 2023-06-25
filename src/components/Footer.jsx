@@ -14,6 +14,7 @@ export const Footer = () => {
         position: 'absolute',
         bottom: '0',
         left: '0',
+        fontFamily:"Moirai One, cursive"
       }
     }>
       <p>©️2023 piggy bank 365</p>
