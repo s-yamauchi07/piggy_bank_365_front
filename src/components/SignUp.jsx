@@ -104,6 +104,7 @@ export const SignUp = () => {
             label="Password"
             value={password}
             margin="dense"
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <TextField
@@ -113,6 +114,7 @@ export const SignUp = () => {
             label="PasswordConfirmation"
             value={passwordConfirmation}
             margin="dense"
+            type="password"
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
           <Button
