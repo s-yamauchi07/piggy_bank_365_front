@@ -47,7 +47,8 @@ export const Header = () => {
               display: 'flex',
               alignItems:'center',
               color:'#fff',
-              textDecoration:'none'
+              textDecoration:'none',
+              fontFamily:"Moirai One, cursive"
             }}
             to="/"
           >
