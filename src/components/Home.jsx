@@ -5,7 +5,6 @@ export const Home = () => {
   return(
     <>
     <div className="first-view">
-      <img src={topImage} className="top-img"/>
       <div className="top-text-contents">
         <h1>Piggy Bank 356</h1>
         <p>
@@ -13,6 +12,7 @@ export const Home = () => {
           カレンダーで履歴を確認できるので、継続も簡単！
         </p>
       </div>
+      <img src={topImage} className="top-img"/>
     </div>
     </>
   )
