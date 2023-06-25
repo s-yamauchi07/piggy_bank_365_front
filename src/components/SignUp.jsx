@@ -6,9 +6,15 @@ import { AuthContext } from "../App";
 
 //レイアウトを決めるライブラリ
 import TextField from "@material-ui/core/TextField"
+import Card from '@material-ui/core/Card';
 import CardContent from "@material-ui/core/CardContent"
 import CardHeader from "@material-ui/core/CardHeader"
 import Button from "@material-ui/core/Button"
+
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+
 
 
 export const SignUp = () => {
@@ -63,7 +69,14 @@ export const SignUp = () => {
 
   return (
     <>
-      <form>
+      <Card variant="outlined"
+            style={{maxWidth: 600,
+                    minWidth: 375,
+                    margin: '100px auto',
+                    padding: '80px 40px'
+
+            }}
+      >
         <CardHeader title="Sign Up" />
         <CardContent>
           <TextField
@@ -114,17 +127,21 @@ export const SignUp = () => {
             submit
           </Button>
         </CardContent>
-      </form>
+
+          {errors.length > 0 ? (
+          <Stack>
+            <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            <ul>
+            {errors.map((error, index) => (
+              <li key={index}>{error}</li> 
+            ))}
+            </ul>
+            </Alert>
+          </Stack>  
+        ) : null}
+      </Card>
       {/* 情報が不足している場合はアラート表示する */}
-      {errors.length > 0 ? (
-      <div>
-        <ul>
-        {errors.map((error, index) => (
-          <li key={index}>{error}</li> 
-        ))}
-        </ul>
-      </div>  
-    ) : null}
     </>
   )
 } 
