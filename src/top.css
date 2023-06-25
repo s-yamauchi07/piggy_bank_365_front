@@ -3,20 +3,34 @@
 
 
 
-ul, li {
+/* ul, li {
   padding: 0;
   margin: 0;
+} */
+
+.wrapper {
+  overflow: scroll;
+  height: calc(100vh - 138px);
 }
 
 .top-heading {
   text-align: center;
+  margin: 40px auto 20px;
+}
+
+.total-amount {
+  margin: 20px;
+  font-family: 'Bagel Fat One', cursive;
+  color: #FFDC02;
 }
 
 .num-lists {
   height: 100%;
+  width: 80%;
+  margin: 40px auto;
 }
 
-.total-amount {
-  font-family: 'Bagel Fat One', cursive;
-  color: #FFDE5A;
+.num-list {
+  margin: 2.5px;
 }
+
