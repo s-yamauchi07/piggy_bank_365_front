@@ -42,8 +42,13 @@ export const User = () => {
   
   return(
     <>
-    <div className="wrapper">
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      height: 'calc(100vh - 138px)',
+    }}>
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'F7F1E5',boxShadow: 3 }}>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
