@@ -41,13 +41,14 @@ export const Header = () => {
     <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar style={{display:'flex', justifyContent: 'space-between'}}>
+        <Toolbar style={{display:'flex', justifyContent: 'space-between', backgroundColor: '#1976d2', color:''}}>
           <Link
             style={{
               display: 'flex',
               alignItems:'center',
               color:'#fff',
-              textDecoration:'none'
+              textDecoration:'none',
+              fontFamily:"Moirai One, cursive"
             }}
             to="/"
           >

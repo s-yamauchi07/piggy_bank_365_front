@@ -71,7 +71,7 @@ function App() {
       >
         {/* ログイン時にはHomeコンポーネント、非ログイン時にはsignup,signinのページを表示させる。 */}
       <BrowserRouter>
-        <Header />
+      <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -94,8 +94,8 @@ function App() {
             </Route>
           </Private>
         </Switch>
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </AuthContext.Provider>
   );
 }
