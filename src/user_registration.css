@@ -1,0 +1,15 @@
+.card-wrapper {
+  max-width: 600px;
+  min-width: 340px;
+  margin: 100px auto;
+  padding: 80px 40px;
+}
+
+/* SP版 */
+@media screen and (max-width: 767px) {
+  .card-wrapper {
+    width: 80vw;
+    margin: 40px auto;
+    padding: 40px 0;
+  }
+}
