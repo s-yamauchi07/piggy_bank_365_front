@@ -52,13 +52,13 @@ export const Header = () => {
             }}
             to="/"
           >
-            <SavingsOutlinedIcon fontSize="large"/>
-            <h2>PIGGY BANK 365</h2>
+            <SavingsOutlinedIcon fontSize="large" />
+            <h2 className="app-title">PIGGY BANK 365</h2>
           </Link>
 
           {isSignedIn ? (
             <>
-            <div>
+            <div className="header-menu">
               <Button sx={{color: '#fff'}} size="large" component={Link} to={`/user/${currentUser.id}`}>{currentUser.nickname}</Button>
               <Button sx={{color: '#fff'}} size="large" component={Link} to={"/amounts"}>Top</Button>
               <Button sx={{color: '#fff'}} size="large" onClick={handleSignOut}>LogOut</Button>
@@ -66,7 +66,7 @@ export const Header = () => {
             </>
           ) : (
             <>
-            <div>
+            <div className="header-menu">
               <Button sx={{color: '#fff'}} size="large" component={Link} to="/signin">Login</Button>
               <Button sx={{color: '#fff'}} size="large" component={Link} to="/signup">Signup</Button>
             </div>
