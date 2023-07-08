@@ -69,6 +69,9 @@ https://github.com/s-yamauchi07/piggy_bank_356
 
 これらの課題を解決するためにワンタッチで貯蓄履歴を管理でき、貯蓄合計金額を把握できるアプリケーションを作成しようと考えました。
 
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/8a8e8cd5aa6ac453c149cd5c8a7ae959.png)](https://gyazo.com/8a8e8cd5aa6ac453c149cd5c8a7ae959)
+
 # 開発環境
 * フロントエンド
   * React(v18.2.0)
