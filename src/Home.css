@@ -23,14 +23,14 @@
 }
 
 /* タブレット版 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .first-view {
     flex-direction: column;
     text-align: center;
   }
 
   .top-img {
-    width: 60vw;
+    width: 50vw;
   }
 
   .top-text-contents h1 {
