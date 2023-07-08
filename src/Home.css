@@ -19,4 +19,53 @@
 .top-text-contents h1 {
   font-family: 'Moirai One', cursive;
   font-size: 5rem;
+  width: 40vw;
+}
+
+/* タブレット版 */
+@media screen and (max-width: 1024px) {
+  .first-view {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .top-img {
+    width: 50vw;
+  }
+
+  .top-text-contents h1 {
+    font-family: 'Moirai One', cursive;
+    width: 100vw;
+  }
+}
+
+/* SP版 */
+@media screen and (max-width: 767px) {
+  .first-view {
+    height: calc(100vh - 120px);
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .header-menu a{
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .app-title {
+    font-size: 12px;
+  }
+
+  .top-text-contents h1 {
+    font-family: 'Moirai One', cursive;
+    font-size: 3.5rem;
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+  .top-text-contents p {
+    font-size: 12px;
+  }
+
+
 }

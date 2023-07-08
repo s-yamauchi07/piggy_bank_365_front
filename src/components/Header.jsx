@@ -9,12 +9,19 @@ import Cookies from "js-cookie";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
+import { useMediaQuery } from 'react-responsive';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 export const Header = () => {
-  const { isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext)
-  const history = useHistory()
+  const { isSignedIn, setIsSignedIn, currentUser } = useContext(AuthContext);
+  const history = useHistory();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const handleSignOut = async (e) => {
     e.preventDefault();
@@ -52,21 +59,37 @@ export const Header = () => {
             }}
             to="/"
           >
-            <SavingsOutlinedIcon fontSize="large"/>
-            <h2>PIGGY BANK 365</h2>
+            <SavingsOutlinedIcon fontSize="large" />
+            <h2 className="app-title">PIGGY BANK 365</h2>
           </Link>
 
           {isSignedIn ? (
             <>
-            <div>
-              <Button sx={{color: '#fff'}} size="large" component={Link} to={`/user/${currentUser.id}`}>{currentUser.nickname}</Button>
-              <Button sx={{color: '#fff'}} size="large" component={Link} to={"/amounts"}>Top</Button>
-              <Button sx={{color: '#fff'}} size="large" onClick={handleSignOut}>LogOut</Button>
+            <div className="header-menu">
+              {isMobile ? (
+                <>
+                  <IconButton sx={{ color: '#fff' }} size="large" component={Link} to={`/user/${currentUser.id}`}>
+                    <AccountCircleIcon />
+                  </IconButton>
+                  <IconButton sx={{ color: '#fff' }} size="large" component={Link} to="/amounts">
+                    <HomeIcon />
+                  </IconButton>
+                  <IconButton sx={{ color: '#fff' }} size="large" onClick={handleSignOut}>
+                    <LogoutIcon />
+                  </IconButton>
+                </>
+              ): (
+                <>
+                  <Button sx={{color: '#fff'}} size="large" component={Link} to={`/user/${currentUser.id}`}>{currentUser.nickname}</Button>
+                  <Button sx={{color: '#fff'}} size="large" component={Link} to={"/amounts"}>Top</Button>
+                  <Button sx={{color: '#fff'}} size="large" onClick={handleSignOut}>LogOut</Button>
+                </>
+              )}
             </div>
             </>
           ) : (
             <>
-            <div>
+            <div className="header-menu">
               <Button sx={{color: '#fff'}} size="large" component={Link} to="/signin">Login</Button>
               <Button sx={{color: '#fff'}} size="large" component={Link} to="/signup">Signup</Button>
             </div>

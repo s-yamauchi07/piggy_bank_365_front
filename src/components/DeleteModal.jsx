@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useMediaQuery } from 'react-responsive';
 
 const style = {
   position: 'absolute',
@@ -23,14 +24,20 @@ const style = {
   p: 4,
 };
 
-export const DeleteModal = ({handleClose,open,userInfo}) => {
+export const DeleteModal = ({handleClose,open}) => {
   const { setIsSignedIn, setCurrentUser }= useContext(AuthContext);
   // ユーザー編集用のparamsを作る
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
 
   const history = useHistory();
+
+  if (isMobile) {
+    style.width = '70%';
+  }
 
   const handleDeleteUser = async(e) => {
     e.preventDefault();

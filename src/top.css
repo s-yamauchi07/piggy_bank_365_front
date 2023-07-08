@@ -27,10 +27,21 @@
 .num-lists {
   height: 100%;
   width: 80%;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
 .num-list {
   margin: 2.5px;
 }
 
+/* SP版 */
+@media screen and (max-width: 767px) {
+  .num-lists {
+    margin: auto;
+  }
+
+  .num-list {
+    padding: 0;
+    min-width: 40px;
+  }
+}

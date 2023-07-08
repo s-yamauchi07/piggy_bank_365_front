@@ -15,6 +15,8 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
 
+import '../user_registration.css';
+
 export const SignIn = () => {
   const  {setIsSignedIn, setCurrentUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -59,14 +61,7 @@ export const SignIn = () => {
 
   return (
     <>
-      <Card variant="outlined"
-            style={{maxWidth: 600,
-                    minWidth: 375,
-                    margin: '100px auto',
-                    padding: '80px 40px'
-
-            }}
-      >
+      <Card variant="outlined" className="card-wrapper">
         <CardHeader title="Sign In" />
         <CardContent>
           <TextField

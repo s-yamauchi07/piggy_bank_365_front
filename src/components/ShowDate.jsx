@@ -6,10 +6,12 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import axios from 'axios';
 import '../top.css';
 import 'react-calendar/dist/Calendar.css';
+import { useMediaQuery } from 'react-responsive';
 
 export const ShowDate = () => {
   const { currentUser }  = useContext(AuthContext)
   const [savingDate, setSavingDate] = useState([])
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const fetch = async () => {
     const res = await axios.get(`${process.env.REACT_APP_PUBLIC_BACKEND_URL}/calendars`, {
@@ -52,8 +54,8 @@ export const ShowDate = () => {
     local="ja-JP"
     calendarType="US"
     defaultValue={new Date()}
-    defaultView="month"
-    showDoubleView="true"
+    defaultView={isMobile ? 'month' : '2months'} 
+    showDoubleView={!isMobile}
     tileContent={getTileContent}
     formatDay={(locale, date) => format(date, 'd')}
     />

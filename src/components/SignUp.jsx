@@ -69,14 +69,7 @@ export const SignUp = () => {
 
   return (
     <>
-      <Card variant="outlined"
-            style={{maxWidth: 600,
-                    minWidth: 375,
-                    margin: '100px auto',
-                    padding: '80px 40px'
-
-            }}
-      >
+      <Card variant="outlined" className="card-wrapper">
         <CardHeader title="Sign Up" />
         <CardContent>
           <TextField
@@ -128,6 +121,7 @@ export const SignUp = () => {
           >
             submit
           </Button>
+          <div style={{height: '20px'}} /> 
         </CardContent>
 
           {errors.length > 0 ? (
