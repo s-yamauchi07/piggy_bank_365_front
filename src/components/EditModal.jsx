@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useMediaQuery } from 'react-responsive';
 
 const style = {
   position: 'absolute',
@@ -31,9 +32,14 @@ export const EditModal = ({handleClose,open,userInfo}) => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
 
   const history = useHistory();
+
+  if (isMobile) {
+    style.width = '70%';
+  }
 
   const generateEditParams = () => {
     const UserEditParams = {
