@@ -83,7 +83,6 @@ export const EditModal = ({handleClose,open,userInfo}) => {
 
 
   return (
-    <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -137,6 +136,5 @@ export const EditModal = ({handleClose,open,userInfo}) => {
         <Button style={{display: 'block'}} onClick={handleEditUser}>update</Button>
         </Box>
       </Modal>
-    </div>
   );
 }

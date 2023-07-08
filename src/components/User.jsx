@@ -58,11 +58,12 @@ export const User = () => {
           <ListItemText primary="Password" secondary="*****" />
         </ListItem>
         
-        <Button size="small" onClick={handleEditOpen}>Edit</Button>
-        { editOpen && <EditModal handleClose={handleEditClose} open={editOpen} userInfo={currentUser}/> }
+        <Button sx={{ display: 'inline-block' }} size="small" onClick={handleEditOpen}>Edit</Button>
+        <EditModal handleClose={handleEditClose} open={editOpen} userInfo={currentUser} />
 
-        <Button size="small" onClick={handleDeleteOpen}>Delete</Button>
-        { deleteOpen && <DeleteModal handleClose={handleDeleteClose} open={deleteOpen} userInfo={currentUser}/> }
+
+        <Button sx={{ display: 'inline-block' }} size="small" onClick={handleDeleteOpen}>Delete</Button>
+        <DeleteModal handleClose={handleDeleteClose} open={deleteOpen} userInfo={currentUser} />
       </List>
       <ShowDate />
     </div>

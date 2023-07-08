@@ -68,7 +68,6 @@ export const DeleteModal = ({handleClose,open}) => {
 
 
   return (
-    <div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -105,6 +104,5 @@ export const DeleteModal = ({handleClose,open}) => {
           <Button variant="outlined" color="error"  style={{display: 'block'}} onClick={handleDeleteUser}>Delete</Button>
         </Box>
       </Modal>
-    </div>
   );
 }
