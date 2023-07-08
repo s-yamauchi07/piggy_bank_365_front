@@ -11,10 +11,10 @@ https://piggy-bank-365-front.vercel.app/
 
 
 # テスト用アカウント
-Email: test@test.com
+Email: test@test.com  
 Password: aaa111
 
-# バックエンドのGithub
+# サーバーサイドのリポジトリ
 https://github.com/s-yamauchi07/piggy_bank_356
 
 
@@ -49,7 +49,7 @@ https://github.com/s-yamauchi07/piggy_bank_356
 [![Image from Gyazo](https://i.gyazo.com/94098ab3e17bf191637ca73ee7187398.gif)](https://gyazo.com/94098ab3e17bf191637ca73ee7187398)
 
 1. ヘッダーの「ユーザー名」のボタンをクリックし、ユーザー詳細ページへ移動する。
-2. 「EDIT」ボタンをクリックし、変更したい項目を入力する(passwordと確認用passwordは変更時に必ず入力が必要)
+2. 「EDIT」ボタンをクリックし、変更したい項目を入力する。
 3. 「UPDATE」ボタンをクリックしてユーザー情報編集ができる。
 
 ## アカウント削除
@@ -78,7 +78,7 @@ https://github.com/s-yamauchi07/piggy_bank_356
   * Matetial-UI(V5.13.3)
 
 * バックエンド
-  * rails(v6.0.6)
+  * rails(v6.0.6) APIモード
 
 * インフラ
   * Vercel
