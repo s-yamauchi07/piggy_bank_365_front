@@ -1,0 +1,50 @@
+
+.user-contents {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 138px);
+}
+
+
+
+
+/* タブレット版 */
+@media (max-width: 1024px) {
+  .user-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    height: calc(100vh - 120px);
+    padding: 74px 0 56px;
+    overflow-y: scroll;
+  }
+
+  .user-contents ul{
+    width: 90vw;
+  }
+
+  .react-calendar--doubleView {
+    width: 90vw;
+    margin: 40px 0;
+  }
+}
+
+/* SP版 */
+@media (max-width: 768px) {
+  .user-contents {
+    padding: 30px 0 64px;
+    height: calc(100vh - 140px);
+    overflow-y: scroll;
+  }
+
+  .user-contents ul {
+    width: 80vw;
+  }
+
+  .react-calendar {
+    width: 80vw;
+    margin: 20px 0;
+  }
+}

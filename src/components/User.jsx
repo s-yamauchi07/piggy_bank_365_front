@@ -16,18 +16,7 @@ import Avatar from '@mui/material/Avatar';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EmailIcon from '@mui/icons-material/Email';
 import HttpsIcon from '@mui/icons-material/Https';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import '../user.css';
 
 export const User = () => {
   const { currentUser } = useContext(AuthContext)
@@ -42,13 +31,8 @@ export const User = () => {
   
   return(
     <>
-    <div style={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      height: 'calc(100vh - 138px)',
-    }}>
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'F7F1E5',boxShadow: 3 }}>
+    <div className="user-contents">
+      <List sx={{ width: '40%', bgcolor: 'F7F1E5',boxShadow: 3 }}>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
