@@ -11,6 +11,7 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useMediaQuery } from 'react-responsive';
+import { Block } from '@material-ui/icons';
 
 const style = {
   position: 'absolute',
@@ -101,7 +102,7 @@ export const DeleteModal = ({handleClose,open}) => {
           style={{width: '80%'}}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
-          <Button variant="outlined" color="error" onClick={handleDeleteUser}>Delete</Button>
+          <Button variant="outlined" color="error"  style={{display: 'block'}} onClick={handleDeleteUser}>Delete</Button>
         </Box>
       </Modal>
     </div>
