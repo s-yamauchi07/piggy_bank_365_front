@@ -6,6 +6,18 @@ import { useContext } from 'react'
 import { Button } from '@mui/material';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 
+import { createTheme } from "@mui/material/styles";
+
+let theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 768,
+      lg: 1036,
+    },
+  }
+})
+
 const days = Array.from(new Array(365)).map((v, i) => i+1)
 
 export const Top = () => {
@@ -70,12 +82,17 @@ export const Top = () => {
       </div>  
       <div className="num-lists">
         {days.map((item, i) => (
-          <Button key={i}
+          <Button 
+              key={i}
               value={item}
               className="num-list"
               style={{backgroundColor: checked[i+1]? 'lightgray': 'transparent'}}
               onClick= { () => handleClick(item)}
               variant="outlined"
+              sx={{ 
+                padding: {xs:"5px", sm: "5px", lg: "8px"},
+                minWidth: {xs: "calc(100% / 5);", sm:"calc(100% / 10)", lg:"calc(100% / 15)"}
+              }}
           >
           {item}
           </Button>
